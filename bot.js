@@ -7,8 +7,8 @@ const { Address } = require('ton-core');
 const fs = require('fs');
 
 // ==== Настройки ====
-const TOKEN = '8715661147:AAGUKp_GkAo8aT-FyImoHfVuFnZPKfFqzzQ'; // вставь свой токен Telegram
-const WEBAPP_URL = 'https://sergey52bb.github.io/webapp/'; // ссылка на Mini App
+const TOKEN = '8715661147:AAGUKp_GkAo8aT-FyImoHfVuFnZPKfFqzzQ'; // вставь свой Telegram токен
+const WEBAPP_URL = 'https://sergey52bb.github.io/webapp/
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 const client = new TonClient({ endpoint: 'https://toncenter.com/api/v2/jsonRPC' });
@@ -35,19 +35,20 @@ bot.onText(/\/start/, async (msg) => {
     saveData();
   }
 
-  bot.sendMessage(chatId, '🚀 Open Wallet', {
+  // ---- Кнопка Open Wallet ----
+  bot.sendMessage(chatId, '💎 TON Keeper Lite\nНажмите кнопку, чтобы открыть кошелек:', {
     reply_markup: {
       inline_keyboard: [
-        [{ text: 'https://sergey52bb.github.io/webapp/', web_app: { url: WEBAPP_URL } }]
+        [{ text: '💼 Open Wallet', web_app: { url: WEBAPP_URL } }]
       ]
     }
   });
 });
 
-// ==== Express API ====
+// ==== Express API для Mini App ====
 const app = express();
 
-// главная страница для Render (чтобы не было Cannot GET /)
+// главная страница для Render
 app.get('/', (req, res) => res.send('TON Wallet API работает 🚀'));
 
 // API для Mini App
