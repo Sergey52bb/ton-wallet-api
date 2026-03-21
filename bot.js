@@ -8,7 +8,7 @@ const fs = require('fs');
 
 // ==== Настройки ====
 const TOKEN = '8715661147:AAGUKp_GkAo8aT-FyImoHfVuFnZPKfFqzzQ'; // вставь свой Telegram токен
-const WEBAPP_URL = 'https://sergey52bb.github.io/webapp/
+const WEBAPP_URL = 'https://sergey52bb.github.io/webapp/';
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 const client = new TonClient({ endpoint: 'https://toncenter.com/api/v2/jsonRPC' });
