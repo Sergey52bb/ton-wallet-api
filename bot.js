@@ -32,18 +32,19 @@ bot.onText(/\/start/, (msg) => {
   }
 
   bot.sendMessage(chatId, '💎 SYN WALLET\n🚀 Открыть кошелек:', {
-  reply_markup: {
-    inline_keyboard: [
-      [
-        {
-          text: '🚀 Open Wallet',
-          web_app: {
-            url: 'https://sergey52bb.github.io/webapp/'
+    reply_markup: {
+      inline_keyboard: [
+        [
+          {
+            text: '🚀 Open Wallet',
+            web_app: {
+              url: WEBAPP_URL
+            }
           }
-        }
+        ]
       ]
-    ]
-  }
+    }
+  });
 });
 
 const app = express();
