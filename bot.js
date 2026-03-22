@@ -7,7 +7,7 @@ const { Address } = require('ton-core');
 const fs = require('fs');
 
 // ==== Настройки ====
-const TOKEN = '8715661147:AAGUKp_GkAo8aT-FyImoHfVuFnZPKfFqzzQ'; // вставь свой Telegram токен
+const TOKEN = '8715661147:AAGPQcf5RNvaWA57Y2yQxbLYyUE39liMnSU'; // вставь свой Telegram токен
 const WEBAPP_URL = 'https://sergey52bb.github.io/webapp/';
 
 const bot = new TelegramBot(TOKEN, { polling: true });
