@@ -8,7 +8,7 @@ const WEBAPP_URL = 'https://sergey52bb.github.io/webapp/';
 const isRender = process.env.RENDER === 'true';
 
 const bot = new TelegramBot(TOKEN, {
-  polling: !isRender
+  polling: true
 });
 
 let users = {};
