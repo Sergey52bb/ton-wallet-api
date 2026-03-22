@@ -36,7 +36,7 @@ bot.onText(/\/start/, async (msg) => {
   }
 
   // ---- Кнопка Open Wallet ----
-  bot.sendMessage(chatId, '💎 TON Keeper Lite\nНажмите кнопку, чтобы открыть кошелек:', {
+  bot.sendMessage(chatId, '💎 SYN/WALLET BOT\nНажмите кнопку, чтобы открыть кошелек:', {\nНажмите кнопку, чтобы открыть кошелек:', {
     reply_markup: {
       inline_keyboard: [
         [{ text: '💼 Open Wallet', web_app: { url: WEBAPP_URL } }]
