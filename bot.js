@@ -36,13 +36,17 @@ bot.onText(/\/start/, async (msg) => {
   }
 
   // ---- Кнопка Open Wallet ----
-  bot.sendMessage(chatId, '💎 SYN/WALLET BOT\nНажмите кнопку, чтобы открыть кошелек:', {\nНажмите кнопку, чтобы открыть кошелек:', {
-    reply_markup: {
-      inline_keyboard: [
-        [{ text: '💼 Open Wallet', web_app: { url: WEBAPP_URL } }]
+  bot.sendMessage(chatId, '💎 SYN WALLET\n🚀 Открыть кошелек:', {
+  reply_markup: {
+    inline_keyboard: [
+      [
+        {
+          text: '🚀 Open Wallet',
+          web_app: { url: 'https://sergey52bb.github.io/webapp/' }
+        }
       ]
-    }
-  });
+    ]
+  }
 });
 
 // ==== Express API для Mini App ====
