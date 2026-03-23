@@ -1,66 +1,23 @@
-const express = require('express');
 const TelegramBot = require('node-telegram-bot-api');
-const fs = require('fs');
 
-const TOKEN = '8715661147:AAGPQcf5RNvaWA57Y2yQxbLYyUE39liMnSU';
+const TOKEN = '8715661147:AAGPQcf5RNvaWA57Y2yQxbLYyUE39liMnSU'; // ← вставь свой токен
 const WEBAPP_URL = 'https://sergey52bb.github.io/grok-autotrade/';
 
-const isRender = process.env.RENDER === 'true';
+const bot = new TelegramBot(TOKEN, { polling: true });
 
-const bot = new TelegramBot(TOKEN, {
-  polling: true
-});
-
-let users = {};
-
-if (fs.existsSync('wallets.json')) {
-  users = JSON.parse(fs.readFileSync('wallets.json'));
-}
-
-function saveData() {
-  fs.writeFileSync('wallets.json', JSON.stringify(users, null, 2));
-}
-
+// команда старт
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
 
-  if (!users[chatId]) {
-    users[chatId] = {
-      address: 'EQ_TEST_' + chatId
-    };
-    saveData();
-  }
-
-  bot.sendMessage(chatId, '💎 SYN TERMINAL\nAI Trading System\n\n🚀 Открыть терминал:', {
-  reply_markup: {
-    inline_keyboard: [
-      [{ text: '🚀 Open Terminal', web_app: { url: WEBAPP_URL } }]
-    ]
-  }
-});
-
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send('TON Wallet API работает 🚀');
-});
-
-app.get('/user', (req, res) => {
-  const chatId = req.query.id;
-  const user = users[chatId];
-
-  if (!user) {
-    return res.json({ error: 'User not found' });
-  }
-
-  res.json({
-    address: user.address,
-    balance: 0
-  });
-});
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log('🚀 Server started on port ' + PORT);
+  bot.sendMessage(
+    chatId,
+    '💎 SYN TERMINAL\nAI Trading System\n\n🚀 Открыть терминал:',
+    {
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: '🚀 Open Terminal', web_app: { url: WEBAPP_URL } }]
+        ]
+      }
+    }
+  );
 });
