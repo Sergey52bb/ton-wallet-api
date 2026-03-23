@@ -3,7 +3,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 
 const TOKEN = '8715661147:AAGPQcf5RNvaWA57Y2yQxbLYyUE39liMnSU';
-const WEBAPP_URL = 'https://sergey52bb.github.io/webapp/';
+const WEBAPP_URL = 'https://sergey52bb.github.io/grok-autotrade/';
 
 const isRender = process.env.RENDER === 'true';
 
@@ -31,20 +31,12 @@ bot.onText(/\/start/, (msg) => {
     saveData();
   }
 
-  bot.sendMessage(chatId, '💎 SYN WALLET\n🚀 Открыть кошелек:', {
-    reply_markup: {
-      inline_keyboard: [
-        [
-          {
-            text: '🚀 Open Wallet',
-            web_app: {
-              url: WEBAPP_URL
-            }
-          }
-        ]
-      ]
-    }
-  });
+  bot.sendMessage(chatId, '💎 SYN TERMINAL\nAI Trading System\n\n🚀 Открыть терминал:', {
+  reply_markup: {
+    inline_keyboard: [
+      [{ text: '🚀 Open Terminal', web_app: { url: WEBAPP_URL } }]
+    ]
+  }
 });
 
 const app = express();
